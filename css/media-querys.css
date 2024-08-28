@@ -28,6 +28,8 @@
     width: 100%;
     bottom: auto;
     top: 60px;
+    height: 100%;
+    transition: height 0.5s linear;
   }
   /* .search__product-button::after {
     content: "Search Product";
@@ -48,9 +50,6 @@
   } */
   .hidden__search-overlay {
     height: 0;
-    transition: height 0.5s linear;
-  }
-  .search__container {
-    height: 100%;
+    transition: 0.5s;
   }
 }

@@ -205,13 +205,16 @@ function getTotal () {
 }
 
 async function cartPay() {
+  if (!app.user.id) return authLink();
   app.setOrder(app.user.id, app.cartProducts);
   const data = await api.createOrder(app.order);
   app.setCartProducts([]);
   viewCart.cartPayButton();
   orderSuccess(data);
 }
-
+function authLink() {
+  window.location.href = './LogPage.html';
+}
 function orderSuccess(data) {
   const orderOverlay = document.querySelector('.order__overlay');
   const orderOverlayPrice = orderOverlay.querySelector('.order__price');
@@ -225,7 +228,8 @@ function orderSuccess(data) {
 }
 function searchProductOpenInput() {
   if (window.matchMedia('(max-width: 500px)').matches) {
-    viewSearch.openSearchInput();
+    
+    viewSearch.toggleSearchInput();
   } else {
     viewHeader.toggleHeader();
     viewSearch.toggleSearchInput();
