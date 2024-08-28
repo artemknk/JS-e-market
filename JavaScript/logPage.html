@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/logPage.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container login">
+    <h2>User Authorization</h2>
+    <form>
+      <div class="form-group">
+        <label for="login">Login:</label>
+        <input type="text" class="form__input" pattern="^[\w+]+@[\w+]+\.[a-z]+$|^[\w+]+$" name="username" required>
+        <p class="error__message" data-error-pattern="Login must be in email format"></p>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form__input" pattern="^[\w+]+$" minlength="6" maxlength="20" name="password" required>
+        <p class="error__message" data-error-length="Password must be between 6 and 20 characters"  data-error-pattern="Password must contain only letters, numbers and special characters"></p>
+      </div>
+      <p class="login__message"></p>
+      <button class="form__submit" type="submit" disabled>Submit</button>
+    </form>
+  </div>
+  <!-- <div class="form-container register">
+    <h2>User Registration</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form> -->
+  </div>
+  <script src="js/logPage.js"></script>
+</body>
+</html>

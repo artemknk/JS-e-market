@@ -1,0 +1,56 @@
+@media (max-width: 500px) {
+  .burger__menu {
+    display: block;
+  }
+  .header__buttons {
+    visibility: collapse;
+    opacity: 0;
+    transition: opacity 0.5s linear, visibility 0s;
+    width: 0px;
+  }
+  .header__buttons--active {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 95%;
+    top: 70px;
+    z-index: 1;
+    transition: opacity 0.5s linear;
+  }
+  .header__view {
+    padding-bottom: 120px;
+  }
+  .search__container {
+    padding: 0;
+    width: 100%;
+    bottom: auto;
+    top: 60px;
+  }
+  /* .search__product-button::after {
+    content: "Search Product";
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  } */
+  /* .search__product-button:hover::after {
+    opacity: 1;
+  } */
+  .hidden__search-overlay {
+    height: 0;
+    transition: height 0.5s linear;
+  }
+  .search__container {
+    height: 100%;
+  }
+}

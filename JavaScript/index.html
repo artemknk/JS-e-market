@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/media-querys.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+      <a class="header__logo">LOGO</a>
+      </div>
+      <div class="header__buttons">
+        <button class="search__product-button"></button>
+        <button class="add__product"></button>
+        <button class="cart__button"></button>
+        <button class="products__category"></button>
+        <a href="./LogPage.html" class="header__login"></a>
+        <div class="userProfile">
+          <img src="" alt="" class="user__pic">
+          <div class="user__container">
+          </div>
+        </div>
+        <div class="search__container hidden__search-overlay">
+          <input type="text" class="search__product-input">
+          <button class="search__product-clear">Clear</button>
+        </div>
+      </div>
+      <button class="burger__menu"></button>
+    </header>
+<section class="products"></section>
+  </div>
+  <div class="user__modal hidden close">
+    <div class="user__modal-container">
+      <h2 class="user__modal-title">User Profile</h2>
+      <p class="user__modal-name"></p>
+      <p class="user__modal-email"></p>
+      <p class="user__modal-phone"></p>
+      <button class="user__modal-button user__modal-edit">Edit Profile</button>
+      <button class="user__modal-button user__modal-logout">Logout</button>
+      <button class="user__modal-close">X</button>
+    </div>
+  </div>
+  <div class="overlay hidden close">
+    <div class="overlay__container">
+      <h2 class="overlay__title">Edit Profile</h2>
+      <form class="form__edit-profile">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+        <button class="overlay__save-button" type="submit">Save</button>
+      </form>
+      <button class="user__modal-close">X</button>
+    </div>
+  </div>
+  <div class="add__product-modal hidden close">
+    <div class="overlay__container">
+      <h2 class="overlay__title">Add New Product</h2>
+      <form class="form__add-product">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category"></label>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image">
+        <button class="product__save-button" type="submit">Save</button>
+      </form>
+      <button class="user__modal-close">X</button>
+    </div>
+  </div>
+  <div class="update__product-modal hidden close">
+    <div class="overlay__container">
+      <h2 class="overlay__title">Update Product</h2>
+      <form class="form__update-product">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category"></label>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image">
+        <button class="product__update-button" type="submit">Save</button>
+      </form>
+      <button class="user__modal-close">X</button>
+    </div>
+  </div>
+  <div class="cart hidden close">
+    <h2 class="cart__title">Cart</h2>
+      <div class="cart__container">
+        </div>
+        <button class="user__modal-close">X</button>
+        <div class="cart__option">
+          <button class="cart__pay">Pay</button>
+          <p class="total__price">Total: <span class="full__price">0</span>$</p>
+      </div>
+  </div>
+  <div class="categorys__container hidden">
+    <div class="categorys__title-container">
+      <h2 class="categorys__title">Categorys</h2>
+    </div>
+    <button class="categorys__clear-button">All Categorys</button>
+  </div>
+  <div class="order__overlay hidden">
+    <div class="overlay__container">
+      <div class="order__id"></div>
+      <div class="order__price"></div>
+      <h2 class="overlay__title">Спасибо за покупку</h2>
+    </div>
+  </div>
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>
