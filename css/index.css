@@ -403,11 +403,7 @@ body {
   height: calc(100vh - 300px);
 
 }
-.cart__option {
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-}
+
 .cart-item__counter{
   display: flex;
 }
