@@ -380,7 +380,7 @@ body {
 .cart {  
   right: 10px;
   top: 100px;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 160px);
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
