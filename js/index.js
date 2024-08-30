@@ -229,7 +229,6 @@ function orderSuccess(data) {
 function searchProductOpenInput() {
   if (window.matchMedia('(max-width: 500px)').matches) {
     
-    viewSearch.toggleSearchInput();
   } else {
     viewHeader.toggleHeader();
     viewSearch.toggleSearchInput();
