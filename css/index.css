@@ -380,7 +380,7 @@ body {
 .cart {  
   right: 10px;
   top: 100px;
-  height: auto;
+  height: calc(100vh - 110px);
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
@@ -402,7 +402,6 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   height: calc(100vh - 300px);
-
 }
 
 .cart-item__counter{
@@ -474,7 +473,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 65px;
 }
 .cart__pay {
   background-color: #007bff;
