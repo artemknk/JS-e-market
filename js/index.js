@@ -286,6 +286,11 @@ function openBurgerMenu() {
   if (window.matchMedia('(max-width: 500px)').matches) {
     viewHeader.toggleHeader();
     viewSearch.closeSearchInput();
+    profile.close();
+    viewCart.close();
+    viewCategorys.close();
+    updateProductOverlay.classList.add('hidden');
+    addProductOverlay.classList.add('hidden');
   }
 }
 
