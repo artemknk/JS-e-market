@@ -21,33 +21,16 @@
     transition: opacity 0.5s linear;
   }
   .header__view {
-    padding-bottom: 120px;
+    padding-bottom: 70px;
   }
   .search__container {
     padding: 0;
     width: 100%;
     bottom: auto;
-    top: 60px;
+    top: 70px;
     height: 100%;
     transition: height 0.5s linear;
   }
-  /* .search__product-button::after {
-    content: "Search Product";
-    position: absolute;
-    top: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-  } */
-  /* .search__product-button:hover::after {
-    opacity: 1;
-  } */
   .hidden__search-overlay {
     height: 0;
     transition: 0.5s;
