@@ -380,7 +380,7 @@ body {
 .cart {  
   right: 10px;
   top: 100px;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 200px);
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
@@ -473,7 +473,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 20px;
 }
 .cart__pay {
   background-color: #007bff;
