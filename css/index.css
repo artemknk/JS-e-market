@@ -2,14 +2,19 @@
 @import 'product.css';
 @import 'categorys.css';
 
-*{
+/* Сброс стилей и базовые настройки */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
+/* Фоновый градиент для всего приложения */
 body {
-  background-color: rgb(232, 232, 237);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -18,19 +23,28 @@ body {
   padding: 0 10px;
   min-width: 320px;
 }
+/* Шапка сайта с современным дизайном */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 15px 20px;
   position: fixed;
-  left: 10px; right: 10px; top: 5px;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid #000;
+  left: 10px;
+  right: 10px;
+  top: 5px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   z-index: 999;
-  transition: 0.5s;
+  transition: all 0.3s ease;
   min-width: 300px;
+}
+
+.header:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 .header__view{
   padding-bottom: 60px;
@@ -40,12 +54,24 @@ body {
   align-items: center;
   gap: 10px;
 }
+/* Логотип с градиентом */
 .header__logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
+
+.header__logo:hover {
+  transform: scale(1.05);
+}
+/* Кнопка входа */
 .header__login {
-  background-color: #ff7f50;
+  background-color: #667eea;
   background-image: url('../icons/login-user_icon.svg');
   width: 50px;
   height: 50px;
@@ -53,14 +79,23 @@ body {
   background-repeat: no-repeat;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.header__login:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 .header__buttons{
   display: flex;
   align-items: center;
   gap: 15px;
 }
+/* Кнопка поиска с градиентом и анимацией */
 .search__product-button {
   width: 50px;
   height: 50px;
@@ -68,15 +103,25 @@ body {
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #ff7f50;
+  background-color: #667eea;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
+
 .search__product-button:hover {
-  background-color: #ff6347;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
+
+.search__product-button:active {
+  transform: translateY(0);
+}
+/* Бургер-меню для мобильных устройств */
 .burger__menu {
   display: none;
   width: 50px;
@@ -84,11 +129,18 @@ body {
   background-image: url('../icons/burger-menu.svg');
   background-size: 50px;
   background-repeat: no-repeat;
-  background-color: #ff7f50;
+  background-color: #667eea;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.burger__menu:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
 }
 .hidden__link {
   display: none;
@@ -114,8 +166,9 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+/* Кнопка корзины с современным дизайном */
 .cart__button {
-  background-color: #ff7f50;
+  background-color: #667eea;
   background-image: url('../icons/cart-shopping_icon.svg');
   width: 50px;
   height: 50px;
@@ -124,16 +177,24 @@ body {
   background-position: center;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   position: relative;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.cart__button:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 .header__button:hover { 
   background-color: #ff6347; 
 }
+/* Кнопка добавления продукта */
 .add__product {
-  background-color: #ff7f50;
+  background-color: #667eea;
   background-image: url('../icons/add-new-product_icon.svg');
   width: 50px;
   height: 50px;
@@ -142,16 +203,21 @@ body {
   background-position: center;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   position: relative;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
+
 .add__product:hover {
-  background-color: #ff6347; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
+/* Кнопка категорий */
 .products__category {
-  background-color: #ff7f50;
+  background-color: #667eea;
   background-image: url('../icons/category-product.svg');
   width: 50px;
   height: 50px;
@@ -160,13 +226,17 @@ body {
   background-position: center;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   position: relative;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
+
 .products__category:hover {
-  background-color: #ff6347; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 .search__product-input {
   width: 100%;
@@ -177,6 +247,7 @@ body {
   transition: 1s;
   visibility: visible;
 }
+/* Модальное окно профиля пользователя */
 .user__modal {
   position: fixed;
   top: 100px;
@@ -184,14 +255,27 @@ body {
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
-  z-index: 1;
+  z-index: 1000;
   flex-direction: column;
   gap: 10px;
-  border: solid 1px #000;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .user__modal-container {
   display: flex;
@@ -313,16 +397,29 @@ body {
   visibility: collapse;
 }
 
+/* Затемненный фон для модальных окон */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Контейнер модального окна */
 .overlay__container {
   display: flex;
   flex-direction: column;
@@ -331,14 +428,27 @@ body {
   position: fixed;
   right: 10px;
   top: 100px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .form__edit-profile {
   width: 100%;

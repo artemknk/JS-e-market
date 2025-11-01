@@ -1,20 +1,29 @@
+/* Карточка товара с современным дизайном */
 .product {
   box-sizing: content-box;
-  background-color: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: baseline;
   gap: 15px;
-  padding: 20px;
-  border: 1px solid #000;
-  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
   min-width: 250px;
   width: 22%;
   min-height: 530px;
   position: relative;
   overflow: hidden;
   flex-grow: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 .search__product {
   display: flex;
@@ -61,29 +70,44 @@
   flex-direction: row;
   gap: 10px;
 }
-.product__button{
-  background-color: #007bff;
+/* Кнопка "Добавить в корзину" */
+.product__button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 12px 24px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
+
 .product__button:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
+
+.product__button:active {
+  transform: translateY(0);
+}
+
+/* Кнопка обновления товара */
 .update__button {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 12px 24px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
 }
+
 .update__button:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
 }

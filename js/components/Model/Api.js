@@ -1,12 +1,13 @@
 /**
- * API client for communicating with DummyJSON API
+ * Клиент для работы с API DummyJSON
+ * Выполняет запросы к серверу для получения и обновления данных
  */
 export default class Api {
   url = 'https://dummyjson.com';
 
   /**
-   * Fetches all products
-   * @returns {Promise<Object>} Products data
+   * Получает все товары из каталога
+   * @returns {Promise<Object>} Данные товаров с сервера
    */
   getProducts() {
     return fetch(`${this.url}/products`)
@@ -14,10 +15,10 @@ export default class Api {
   }
 
   /**
-   * Updates user information
-   * @param {Object} body - User data to update
-   * @param {string} id - User ID
-   * @returns {Promise<Object>} Updated user data
+   * Обновляет информацию о пользователе на сервере
+   * @param {Object} body - Данные пользователя для обновления
+   * @param {string} id - ID пользователя
+   * @returns {Promise<Object>} Обновленные данные пользователя
    */
   updateUser(body, id) {
     return fetch(`${this.url}/users/${id}`, {
@@ -29,8 +30,9 @@ export default class Api {
   }
 
   /**
-   * Authenticates user using stored token
-   * @returns {Promise<Response>} Authentication response
+   * Проверяет авторизацию пользователя с помощью сохраненного токена
+   * Использует токен из localStorage для получения данных пользователя
+   * @returns {Promise<Response>} Ответ сервера с данными пользователя или ошибкой
    */
   async userAuth() {
     return await fetch(`${this.url}/auth/me`, {
@@ -42,9 +44,9 @@ export default class Api {
   }
 
   /**
-   * Creates a new order
-   * @param {Object} body - Order data
-   * @returns {Promise<Object>} Created order data
+   * Создает новый заказ на сервере
+   * @param {Object} body - Данные заказа (ID пользователя и список товаров)
+   * @returns {Promise<Object>} Данные созданного заказа
    */
   createOrder(body) {
     return fetch(`${this.url}/carts/add`, {
@@ -56,9 +58,9 @@ export default class Api {
   }
 
   /**
-   * Adds a new product
-   * @param {Object} body - Product data
-   * @returns {Promise<Object>} Created product data
+   * Добавляет новый товар в каталог
+   * @param {Object} body - Данные товара (название, описание, категория, цена, изображение)
+   * @returns {Promise<Object>} Данные созданного товара
    */
   addNewProduct(body) {
     return fetch(`${this.url}/products/add`, {
@@ -70,10 +72,10 @@ export default class Api {
   }
 
   /**
-   * Updates an existing product
-   * @param {Object} body - Product data to update
-   * @param {string} id - Product ID
-   * @returns {Promise<Object>} Updated product data
+   * Обновляет существующий товар в каталоге
+   * @param {Object} body - Данные товара для обновления
+   * @param {string} id - ID товара
+   * @returns {Promise<Object>} Обновленные данные товара
    */
   async updateProduct(body, id) {
     return await fetch(`${this.url}/products/${id}`, {

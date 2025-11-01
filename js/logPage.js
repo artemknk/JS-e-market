@@ -2,10 +2,11 @@ const form = document.querySelector('form');
 const loginMessage = document.querySelector('.login__message');
 
 /**
- * Validates form input and updates error messages
- * @param {HTMLInputElement} input - Input element to validate
- * @param {HTMLButtonElement} submit - Submit button element
- * @param {NodeList} inputs - All input elements in the form
+ * Проверяет введенные данные в поле формы и обновляет сообщения об ошибках
+ * Проверяет заполненность, формат и длину введенных данных
+ * @param {HTMLInputElement} input - Поле ввода для проверки
+ * @param {HTMLButtonElement} submit - Кнопка отправки формы
+ * @param {NodeList} inputs - Все поля ввода в форме
  */
 function validation(input, submit, inputs) {
   const errorMessage = input.nextElementSibling;
@@ -24,9 +25,10 @@ function validation(input, submit, inputs) {
 }
 
 /**
- * Enables validation for all form inputs
- * @param {string} inputSelector - CSS selector for inputs
- * @param {string} submitSelector - CSS selector for submit button
+ * Включает проверку данных для всех полей формы
+ * Добавляет обработчик события на каждое поле, который проверяет данные при вводе
+ * @param {string} inputSelector - CSS селектор для полей ввода
+ * @param {string} submitSelector - CSS селектор для кнопки отправки
  */
 function enableValidation(inputSelector, submitSelector) {
   const inputs = document.querySelectorAll(inputSelector);
@@ -38,8 +40,9 @@ function enableValidation(inputSelector, submitSelector) {
 }
 
 /**
- * Handles form submission and user authentication
- * @param {Event} event - Form submit event
+ * Обрабатывает отправку формы и аутентификацию пользователя
+ * Отправляет данные на сервер, сохраняет токен авторизации и перенаправляет на главную страницу
+ * @param {Event} event - Событие отправки формы
  */
 async function submitForm(event) {
   try {
@@ -64,6 +67,6 @@ async function submitForm(event) {
   }
 }
 
-// Initialize form validation and submit handler
+// Инициализация: добавление проверки формы и обработчика отправки
 form.addEventListener('submit', submitForm);
 enableValidation('.form__input', '.form__submit');

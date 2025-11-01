@@ -9,7 +9,7 @@ import Header from './components/Header.js';
 import Search from './components/Search.js';
 import Forms from './components/Forms.js';
 
-// DOM Elements
+// Элементы DOM (DOM - Document Object Model)
 const productsSection = document.querySelector('.products');
 const cartButton = document.querySelector('.cart__button');
 const cart = document.querySelector('.cart');
@@ -42,7 +42,7 @@ const categorysClearButton = document.querySelector('.categorys__clear-button');
 const burgerMenuButton = document.querySelector('.burger__menu');
 
 
-// Initialize components
+// Инициализация компонентов приложения
 const api = new Api();
 const app = new App();
 const profile = new Profile(userModal);
@@ -53,7 +53,7 @@ const viewSearch = new Search(searchProductOverlay);
 const formAddProduct = new Forms(addProductForm);
 const formUpdateProduct = new Forms(updateProductForm);
 
-// Load products on page load
+// Загрузка товаров при открытии страницы
 api.getProducts()
   .then(data => {
     app.catalog = data.products;
@@ -67,7 +67,8 @@ api.getProducts()
   });
 
 /**
- * Authenticates user using stored token
+ * Аутентификация пользователя с использованием сохраненного токена
+ * Проверяет наличие токена в localStorage и получает данные пользователя
  */
 async function userAuth() {
   try {
@@ -89,16 +90,16 @@ async function userAuth() {
 }
 
 /**
- * Adds a new product to the API
- * @param {Object} body - Product data
- * @returns {Promise<Object>} New product data
+ * Добавляет новый товар через API
+ * @param {Object} body - Данные товара (название, описание, категория, цена, изображение)
+ * @returns {Promise<Object>} Данные созданного товара
  */
 async function addNewProduct(body) {
   return await api.addNewProduct(body);
 }
 
 /**
- * Opens user profile modal
+ * Открывает модальное окно профиля пользователя при клике на аватар
  */
 userProfile.addEventListener('click', () => {
   profile.open();
@@ -108,7 +109,7 @@ userProfile.addEventListener('click', () => {
 });
 
 /**
- * Opens edit profile form with current user data
+ * Открывает форму редактирования профиля и заполняет её текущими данными пользователя
  */
 function editUserProfileOpen() {
   overlayForm.querySelector('#name').value = app.user.firstName;
@@ -119,8 +120,9 @@ function editUserProfileOpen() {
 }
 
 /**
- * Saves edited user profile
- * @param {Event} event - Form submit event
+ * Сохраняет отредактированный профиль пользователя
+ * Отправляет данные на сервер и обновляет информацию в интерфейсе
+ * @param {Event} event - Событие отправки формы
  */
 async function saveEditProfile(event) {
   event.preventDefault();
@@ -132,8 +134,9 @@ async function saveEditProfile(event) {
 }
 
 /**
- * Saves a new product
- * @param {Event} event - Form submit event
+ * Сохраняет новый товар в каталог
+ * Добавляет товар через API и обновляет список товаров на странице
+ * @param {Event} event - Событие отправки формы
  */
 async function saveNewProduct(event) {
   event.preventDefault();
@@ -151,8 +154,8 @@ async function saveNewProduct(event) {
 }
 
 /**
- * Fills update product form with product data
- * @param {Object} obj - Product object
+ * Заполняет форму обновления товара данными выбранного товара
+ * @param {Object} obj - Объект товара с данными (id, название, цена, описание и т.д.)
  */
 function updateProductFormData(obj) {
   formUpdateProduct.setFormValues(obj);
@@ -160,8 +163,9 @@ function updateProductFormData(obj) {
 }
 
 /**
- * Updates an existing product
- * @param {Event} event - Form submit event
+ * Обновляет существующий товар в каталоге
+ * Отправляет изменения на сервер и обновляет отображение товаров
+ * @param {Event} event - Событие отправки формы
  */
 async function updateProduct(event) {
   event.preventDefault();
@@ -186,7 +190,8 @@ async function updateProduct(event) {
 }
 
 /**
- * Logs out user and reloads page
+ * Выход пользователя из системы
+ * Удаляет токен авторизации из localStorage и перезагружает страницу
  */
 function logout() {
   localStorage.removeItem('token');
@@ -194,8 +199,8 @@ function logout() {
 }
 
 /**
- * Closes modal window
- * @param {HTMLElement} btn - Close button element
+ * Закрывает модальное окно при нажатии на кнопку закрытия
+ * @param {HTMLElement} btn - Элемент кнопки закрытия (крестик)
  */
 function closeModal(btn) {
   const modal = btn.closest('.close');
@@ -203,10 +208,11 @@ function closeModal(btn) {
 }
 
 /**
- * Renders a product card
- * @param {Object} obj - Product object
- * @param {string} method - Method to add product ('appendFile' or 'prependFile')
- * @returns {Product} Product instance
+ * Отображает карточку товара на странице
+ * Создает визуальный элемент товара и добавляет обработчики событий для кнопок
+ * @param {Object} obj - Объект товара с данными (название, цена, описание, изображение и т.д.)
+ * @param {string} method - Метод добавления ('appendFile' - в конец, 'prependFile' - в начало)
+ * @returns {Product} Экземпляр компонента товара
  */
 function renderProducts(obj, method) {
   const product = new Product();
@@ -215,8 +221,8 @@ function renderProducts(obj, method) {
 
   product.btn.addEventListener('click', () => {
     const existingProduct = app.cartProducts.find(el => el.id === obj.id);
-    const objectCartElement = {...obj, count: 1};
-    
+    const objectCartElement = { ...obj, count: 1 };
+
     if (existingProduct) {
       existingProduct.count++;
       existingProduct.countItem.textContent = existingProduct.count;
@@ -231,13 +237,14 @@ function renderProducts(obj, method) {
     updateProductOverlay.classList.remove('hidden');
     updateProductFormData(obj);
   });
-  
+
   return product;
 }
 
 /**
- * Adds product to cart
- * @param {Object} obj - Product object with count
+ * Добавляет товар в корзину
+ * Создает элемент товара в корзине с возможностью изменения количества и удаления
+ * @param {Object} obj - Объект товара с количеством (count)
  */
 function addToCart(obj) {
   const cartItem = new ProductCart();
@@ -249,12 +256,12 @@ function addToCart(obj) {
     cartItem.countElem.textContent = obj.count;
     getTotal();
   }
-  
+
   cartItem.cartItemButtonPlus.addEventListener('click', () => {
     obj.count++;
     updateCartItem();
   });
-  
+
   cartItem.cartItemButtonMinus.addEventListener('click', () => {
     if (obj.count === 0) return;
     obj.count--;
@@ -270,7 +277,8 @@ function addToCart(obj) {
 }
 
 /**
- * Calculates and displays total cart price
+ * Вычисляет и отображает общую стоимость товаров в корзине
+ * Суммирует цены всех товаров с учетом их количества
  */
 function getTotal() {
   fullPrice.textContent = app.cartProducts.reduce((acc, el) => {
@@ -279,11 +287,12 @@ function getTotal() {
 }
 
 /**
- * Processes cart payment
+ * Обрабатывает оплату товаров из корзины
+ * Проверяет авторизацию, создает заказ и очищает корзину
  */
 async function cartPay() {
   if (!app.user.id) return authLink();
-  
+
   try {
     app.setOrder(app.user.id, app.cartProducts);
     const data = await api.createOrder(app.order);
@@ -296,31 +305,33 @@ async function cartPay() {
 }
 
 /**
- * Redirects to login page
+ * Перенаправляет на страницу входа, если пользователь не авторизован
  */
 function authLink() {
   window.location.href = './logPage.html';
 }
 
 /**
- * Displays order success message
- * @param {Object} data - Order data
+ * Отображает сообщение об успешном оформлении заказа
+ * Показывает номер заказа и общую сумму, затем автоматически скрывает через 3 секунды
+ * @param {Object} data - Данные заказа (id, общая сумма и т.д.)
  */
 function orderSuccess(data) {
   const orderOverlay = document.querySelector('.order__overlay');
   const orderOverlayPrice = orderOverlay.querySelector('.order__price');
   const orderId = orderOverlay.querySelector('.order__id');
-  
+
   orderId.textContent = `Order number ${data.id}`;
   orderOverlayPrice.textContent = `Total price: ${Math.floor(data.total)}`;
   orderOverlay.classList.remove('hidden');
-  
+
   setTimeout(() => {
     orderOverlay.classList.add('hidden');
   }, 3000);
 }
 /**
- * Opens search input
+ * Открывает поле поиска товаров
+ * На мобильных устройствах просто открывает, на десктопе - переключает видимость
  */
 function searchProductOpenInput() {
   if (!window.matchMedia('(max-width: 500px)').matches) {
@@ -330,7 +341,8 @@ function searchProductOpenInput() {
 }
 
 /**
- * Clears search input and resets product display
+ * Очищает поле поиска и сбрасывает фильтрацию товаров
+ * Показывает все товары из каталога
  */
 function clearSearchInput() {
   searchProductInput.value = '';
@@ -340,55 +352,58 @@ function clearSearchInput() {
 }
 
 /**
- * Filters and displays products by search query
+ * Фильтрует и отображает товары по поисковому запросу
+ * Сравнивает название товара с введенным текстом (без учета регистра)
  */
 function searchProduct() {
   const allProducts = productsSection.querySelectorAll('.product');
   allProducts.forEach(product => product.remove());
-  
+
   const searchValue = searchProductInput.value.toLowerCase();
-  const searchProducts = app.catalog.filter(product => 
+  const searchProducts = app.catalog.filter(product =>
     product.title.toLowerCase().includes(searchValue)
   );
-  
+
   searchProducts.forEach(productData => {
     renderProducts(productData, 'appendFile');
   });
 }
 
 /**
- * Opens category filter menu
+ * Открывает меню фильтрации по категориям
+ * Показывает список всех доступных категорий для фильтрации товаров
  */
 function searchProductByCategorys() {
   viewCategorys.toggle();
   const allCategoryNames = categorysContainer.querySelectorAll('.category__name');
-  
+
   allCategoryNames.forEach(category => {
     category.addEventListener('click', () => {
       const allProducts = productsSection.querySelectorAll('.product');
       allProducts.forEach(product => product.remove());
-      
+
       const searchProducts = app.catalog.filter(
         product => product.category === category.textContent
       );
-      
+
       searchProducts.forEach(productData => {
         renderProducts(productData, 'appendFile');
       });
-      
+
       viewCategorys.clearCategorys();
       viewCategorys.activeCategory(category);
       viewCategorys.close();
     });
   });
-  
+
   if (window.matchMedia('(max-width: 500px)').matches) {
     viewHeader.closeHeader();
   }
 }
 
 /**
- * Clears category filter and shows all products
+ * Очищает фильтр по категориям и показывает все товары
+ * Снимает выделение с активной категории и отображает полный каталог
  */
 function clearCategorysSearch() {
   viewCategorys.close();
@@ -401,7 +416,8 @@ function clearCategorysSearch() {
 }
 
 /**
- * Opens add product modal
+ * Открывает модальное окно для добавления нового товара
+ * На мобильных устройствах также закрывает меню
  */
 function addProductOpen() {
   if (window.matchMedia('(max-width: 500px)').matches) {
@@ -411,7 +427,8 @@ function addProductOpen() {
 }
 
 /**
- * Toggles burger menu on mobile
+ * Переключает бургер-меню на мобильных устройствах
+ * Открывает/закрывает меню и скрывает все открытые модальные окна
  */
 function openBurgerMenu() {
   if (window.matchMedia('(max-width: 500px)').matches) {
@@ -425,10 +442,10 @@ function openBurgerMenu() {
   }
 }
 
-// Initialize application
+// Инициализация приложения - проверка авторизации пользователя
 userAuth();
 
-// Event Listeners
+// Обработчики событий (слушатели событий)
 cartButton.addEventListener('click', () => {
   viewCart.open();
   viewHeader.closeHeader();

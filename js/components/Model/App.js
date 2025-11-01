@@ -1,5 +1,6 @@
 /**
- * Main application state management class
+ * Основной класс для управления состоянием приложения
+ * Хранит данные о каталоге товаров, корзине, пользователе и заказах
  */
 export default class App {
   catalog = [];
@@ -14,9 +15,10 @@ export default class App {
   editProfileValues = {};
 
   /**
-   * Sets order data
-   * @param {string} userId - User ID
-   * @param {Array} products - Array of products
+   * Устанавливает данные заказа
+   * Преобразует товары из корзины в формат для отправки на сервер
+   * @param {string} userId - ID пользователя
+   * @param {Array} products - Массив товаров из корзины
    */
   setOrder(userId, products) {
     this.order = {
@@ -29,32 +31,33 @@ export default class App {
   }
 
   /**
-   * Sets product catalog
-   * @param {Array} catalog - Array of products
+   * Устанавливает каталог товаров
+   * @param {Array} catalog - Массив товаров
    */
   setCatalog(catalog) {
     this.catalog = catalog;
   }
 
   /**
-   * Sets cart products
-   * @param {Array} cartProducts - Array of cart products
+   * Устанавливает товары в корзине
+   * @param {Array} cartProducts - Массив товаров в корзине
    */
   setCartProducts(cartProducts) {
     this.cartProducts = cartProducts;
   }
 
   /**
-   * Sets product categories
-   * @param {Array} categorys - Array of category names
+   * Устанавливает список категорий товаров
+   * @param {Array} categorys - Массив названий категорий
    */
   setCategorys(categorys) {
     this.categorys = categorys;
   }
 
   /**
-   * Sets user data
-   * @param {Object} data - User data object
+   * Устанавливает данные пользователя
+   * Сохраняет информацию о текущем авторизованном пользователе
+   * @param {Object} data - Объект с данными пользователя (имя, фамилия, email, телефон, id)
    */
   setUser(data = {}) {
     this.user.firstName = data.firstName || '';
@@ -65,8 +68,9 @@ export default class App {
   }
 
   /**
-   * Sets product data for updating
-   * @param {Object} data - Product data object
+   * Устанавливает данные товара для обновления
+   * Сохраняет данные товара, который будет редактироваться
+   * @param {Object} data - Объект с данными товара (id, название, цена, описание, категория, изображения)
    */
   setUpdateProduct(data = {}) {
     this.updateProduct = {
@@ -80,8 +84,9 @@ export default class App {
   }
 
   /**
-   * Sets edit profile form values
-   * @param {HTMLFormElement} editProfileForm - Edit profile form element
+   * Извлекает значения из формы редактирования профиля
+   * Получает данные из полей формы и сохраняет их для отправки на сервер
+   * @param {HTMLFormElement} editProfileForm - Элемент формы редактирования профиля
    */
   setEditProfileValues(editProfileForm) {
     this.editProfileValues = {
