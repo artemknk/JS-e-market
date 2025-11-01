@@ -1,7 +1,15 @@
+/**
+ * Product card component
+ */
 export default class Product {
   element = document.createElement('div');
   btn = null;
   btnEdit = null;
+
+  /**
+   * Renders product card
+   * @param {Object} obj - Product data
+   */
   renderProduct(obj) {
     this.element.classList.add('product');
     this.element.innerHTML = `
@@ -17,14 +25,28 @@ export default class Product {
     this.btn = this.element.querySelector('.product__button');
     this.btnEdit = this.element.querySelector('.update__button');
   }
+
+  /**
+   * Appends product element to parent
+   * @param {HTMLElement} parent - Parent element
+   */
   appendFile(parent) {
     parent.append(this.element);
   }
+
+  /**
+   * Prepends product element to parent
+   * @param {HTMLElement} parent - Parent element
+   */
   prependFile(parent) {
     parent.prepend(this.element);
   }
+
+  /**
+   * Replaces parent with product element
+   * @param {HTMLElement} parent - Parent element
+   */
   updateFile(parent) {
     parent.replaceWith(this.element);
   }
 }
-

@@ -1,5 +1,13 @@
 import Modal from "./Modal.js";
+
+/**
+ * Form component for product management
+ */
 export default class Forms extends Modal {
+  /**
+   * Creates forms instance
+   * @param {HTMLElement} container - Form container element
+   */
   constructor(container) {
     super(container);
 
@@ -16,6 +24,15 @@ export default class Forms extends Modal {
     this.images = [this.imageField.value];
   }
 
+  /**
+   * Sets form field values
+   * @param {Object} data - Form data object
+   * @param {string} data.title - Product title
+   * @param {string} data.description - Product description
+   * @param {string} data.category - Product category
+   * @param {number} data.price - Product price
+   * @param {string|Array} data.images - Product image URL or array
+   */
   setFormValues({ title, description, category, price, images }) {
     this.titleField.value = title;
     this.descriptionField.value = description;
@@ -30,6 +47,10 @@ export default class Forms extends Modal {
     this.images = images;
   }
 
+  /**
+   * Gets form field values
+   * @returns {Object} Form data object
+   */
   getFormValues() {
     return {
       id: this.id,
@@ -38,8 +59,12 @@ export default class Forms extends Modal {
       category: this.categoryField.value,
       price: this.priceField.value,
       images: [this.imageField.value]
-    }
+    };
   }
+
+  /**
+   * Resets form to empty values
+   */
   resetForm() {
     this.titleField.value = '';
     this.descriptionField.value = '';

@@ -1,6 +1,14 @@
+/**
+ * Cart item component
+ */
 export default class ProductCart {
   element = document.createElement('div');
   btn = null;
+
+  /**
+   * Renders cart item
+   * @param {Object} obj - Product data with count
+   */
   render(obj) {
     this.element.classList.add('cart__item');
     this.element.innerHTML = `
@@ -16,9 +24,13 @@ export default class ProductCart {
     this.cartItemButtonPlus = this.element.querySelector('.cart-item__plus');
     this.cartItemButtonMinus = this.element.querySelector('.cart-item__minus');
     this.cartItemRemove = this.element.querySelector('.cart-item__remove');
-    this.countElem = this.element.querySelector('.cart-item__count')
+    this.countElem = this.element.querySelector('.cart-item__count');
   }
 
+  /**
+   * Appends cart item to parent
+   * @param {HTMLElement} parent - Parent element
+   */
   appendFile(parent) {
     parent.append(this.element);
   }
