@@ -10,10 +10,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* Фоновый градиент для всего приложения */
+/* Фон для всего приложения */
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-  background-attachment: fixed;
+  background-color: rgb(232, 232, 237);
   min-height: 100vh;
 }
 
@@ -86,7 +85,8 @@ body {
 }
 
 .header__login:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/login-user_icon.svg');
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
@@ -113,7 +113,8 @@ body {
 }
 
 .search__product-button:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/search-icon.svg');
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
@@ -139,7 +140,8 @@ body {
 }
 
 .burger__menu:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/burger-menu.svg');
   transform: translateY(-2px);
 }
 .hidden__link {
@@ -185,7 +187,8 @@ body {
 }
 
 .cart__button:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/cart-shopping_icon.svg');
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
@@ -211,7 +214,8 @@ body {
 }
 
 .add__product:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/add-new-product_icon.svg');
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
@@ -234,7 +238,8 @@ body {
 }
 
 .products__category:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #ff6347;
+  background-image: url('../icons/category-product.svg');
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
@@ -381,12 +386,12 @@ body {
 .total__price {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 20px;
+  flex-shrink: 0;
 }
 .full__price{
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 20px;
+  flex-shrink: 0;
 }
 
 .hidden {

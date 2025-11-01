@@ -2,19 +2,22 @@
 .cart {
   right: 10px;
   top: 100px;
-  height: calc(100vh - 160px);
   max-width: 500px;
   width: calc(100% - 20px);
   min-width: 300px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 25px;
+  padding-bottom: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   position: fixed;
-  bottom: 20px;
+  max-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   animation: slideIn 0.3s ease;
+  overflow: hidden;
 }
 
 @keyframes slideIn {
@@ -35,8 +38,10 @@
 .cart__container {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  height: calc(100vh - 300px);
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 15px;
+  max-height: calc(100vh - 280px);
 }
 
 .cart-item__counter{
@@ -116,20 +121,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 15px;
+  flex-shrink: 0;
+  gap: 15px;
 }
 /* Кнопка оплаты */
 .cart__pay {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.1rem;
+  padding: 12px 20px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .cart__pay:hover {
